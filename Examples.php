@@ -121,10 +121,7 @@ $customer = addpay($authorisation)->get('/customers/<CUSTOMER_ID>')->send();
 // -------------------------------------
 //
 
-$transactionId = 'some_id';
-$customerId    = 'some_id';
-
-addpay($authorisation)->put("/transactions/{$transactionId}/customers/{$customerId}");
+addpay($authorisation)->put("/transactions/<TRANSACTION_ID>/customers/<CUSTOMER_ID>}");
 
 //
 // -------------------------------------
@@ -132,10 +129,7 @@ addpay($authorisation)->put("/transactions/{$transactionId}/customers/{$customer
 // -------------------------------------
 //
 
-$transactionId = 'some_id';
-$customerId    = 'some_id';
-
-addpay($authorisation)->delete("/transactions/{$transactionId}/customers/{$customerId}");
+addpay($authorisation)->delete("/transactions/<TRANSACTION_ID>/customers/<CUSTOMER_ID>");
 
 //
 // -------------------------------------
@@ -143,10 +137,7 @@ addpay($authorisation)->delete("/transactions/{$transactionId}/customers/{$custo
 // -------------------------------------
 //
 
-$transactionId = 'some_id';
-$contractId    = 'some_id';
-
-addpay($authorisation)->put("/contracts/{$contractId}/transactions/{$transactionId}");
+addpay($authorisation)->put("/contracts/<CONTRACT_ID>/transactions/<TRANSACTION_ID>");
 
 //
 // -------------------------------------
@@ -154,7 +145,4 @@ addpay($authorisation)->put("/contracts/{$contractId}/transactions/{$transaction
 // -------------------------------------
 //
 
-$transactionId = 'some_id';
-$contractId    = 'some_id';
-
-addpay($authorisation)->delete("/contracts/{$contractId}/transactions/{$transactionId}");
+addpay($authorisation)->delete("/contracts/<CONTRACT_ID>/transactions/<TRANSACTION_ID>");
