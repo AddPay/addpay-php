@@ -114,3 +114,47 @@ $customer = addpay($authorisation)->get('/v2/customers/<CUSTOMER_ID>')->send();
 // --------------------------
 //
 $customer = addpay($authorisation)->get('/v2/customers/<CUSTOMER_ID>')->send();
+
+//
+// -------------------------------------
+// Associate a Customer to a Transaction
+// -------------------------------------
+//
+
+$transactionId = 'some_id';
+$customerId    = 'some_id';
+
+addpay($authorisation)->put("/v2/transactions/{$transactionId}/customers/{$customerId}");
+
+//
+// -------------------------------------
+// Dissociate a Customer to a Transaction
+// -------------------------------------
+//
+
+$transactionId = 'some_id';
+$customerId    = 'some_id';
+
+addpay($authorisation)->delete("/v2/transactions/{$transactionId}/customers/{$customerId}");
+
+//
+// -------------------------------------
+// Associate a Transaction to a Contract
+// -------------------------------------
+//
+
+$transactionId = 'some_id';
+$contractId    = 'some_id';
+
+addpay($authorisation)->put("/v2/contracts/{$contractId}/transactions/{$transactionId}");
+
+//
+// -------------------------------------
+// Disssociate a Transaction from a Contract
+// -------------------------------------
+//
+
+$transactionId = 'some_id';
+$contractId    = 'some_id';
+
+addpay($authorisation)->delete("/v2/contracts/{$contractId}/transactions/{$transactionId}");
