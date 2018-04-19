@@ -2,7 +2,7 @@
 
 require('package/src/bootstrap.php');
 
-use Httpful\Request;
+use AddPay\Api;
 
 addpay([
   'client_id'       => 'client_id_here',
@@ -15,7 +15,7 @@ addpay([
 // Get a List of Transaction
 // --------------------------
 //
-$transactions = Request::get(ADDPAY_BASE_URL . '/transactions')->send();
+$transactions = Api::get('/transactions')->send();
 
 var_dump($transactions->body);
 
@@ -24,7 +24,7 @@ var_dump($transactions->body);
 // Get a Single Transaction
 // --------------------------
 //
-$transaction = Request::get(ADDPAY_BASE_URL . '/transactions/<TRANSACTION_ID>')->send()
+$transaction = Api::get('/transactions/<TRANSACTION_ID>')->send();
 
 var_dump($transaction->body);
 
@@ -33,7 +33,7 @@ var_dump($transaction->body);
 // Create a Transaction
 // --------------------------
 //
-$transaction = Request::post(ADDPAY_BASE_URL . '/transactions')->body([
+$transaction = Api::post('/transactions')->body([
   'reference'     => 'Sample',
   'description'   => 'Sample Description',
   'amount'        => [
@@ -49,7 +49,7 @@ var_dump($transaction->body);
 // Update a Transaction
 // --------------------------
 //
-$transaction = Request::put(ADDPAY_BASE_URL . '/transactions/<TRANSACTION_ID>')->body([
+$transaction = Api::put('/transactions/<TRANSACTION_ID>')->body([
   'description'   => 'Updated Sample Description',
 ])->send();
 
@@ -60,7 +60,7 @@ var_dump($transaction->body);
 // Create a Contract
 // --------------------------
 //
-$contract = Request::post(ADDPAY_BASE_URL . '/contracts/')->body([
+$contract = Api::post('/contracts/')->body([
   'reference'  => 'SampleContract',
   'interval'   => 'MONTH',
   'action_day' => 31,
@@ -73,7 +73,7 @@ var_dump($contract->body);
 // Update a Contract
 // --------------------------
 //
-$contract = Request::put(ADDPAY_BASE_URL . '/contracts/<CONTRACT_ID>')->body([
+$contract = Api::put('/contracts/<CONTRACT_ID>')->body([
   'reference' => 'Updated'
 ])->send();
 
@@ -84,7 +84,7 @@ var_dump($contract->body);
 // Get a Contract
 // --------------------------
 //
-$contract = Request::get(ADDPAY_BASE_URL . '/contracts/<CONTRACT_ID>')->send();
+$contract = Api::get('/contracts/<CONTRACT_ID>')->send();
 
 var_dump($contract->body);
 
@@ -93,7 +93,7 @@ var_dump($contract->body);
 // Get a List of Contracts
 // --------------------------
 //
-$contract = Request::get(ADDPAY_BASE_URL . '/contracts')->send();
+$contract = Api::get('/contracts')->send();
 
 var_dump($contract->body);
 
@@ -102,7 +102,7 @@ var_dump($contract->body);
 // Create a Customer
 // --------------------------
 //
-$customer = Request::post(ADDPAY_BASE_URL . '/customers')->body([
+$customer = Api::post('/customers')->body([
   'firstname' => 'John',
   'lastname'  => 'Doe',
   'email'     => 'john@example.org',
@@ -116,7 +116,7 @@ var_dump($customer->body);
 // Update a Customer
 // --------------------------
 //
-$customer = Request::put(ADDPAY_BASE_URL . '/customers/<CUSTOMER_ID>')->body([
+$customer = Api::put('/customers/<CUSTOMER_ID>')->body([
   'firstname' => 'Peter',
   'mobile'    => '+27800123123'
 ])->send();
@@ -128,7 +128,7 @@ var_dump($customer->body);
 // Get a Customer
 // --------------------------
 //
-$customer = Request::get(ADDPAY_BASE_URL . '/customers/<CUSTOMER_ID>')->send();
+$customer = Api::get('/customers/<CUSTOMER_ID>')->send();
 
 var_dump($customer->body);
 
@@ -137,7 +137,7 @@ var_dump($customer->body);
 // Get a List of Customers
 // --------------------------
 //
-$customer = Request::get(ADDPAY_BASE_URL . '/customers/<CUSTOMER_ID>')->send();
+$customer = Api::get('/customers/<CUSTOMER_ID>')->send();
 
 var_dump($customer->body);
 
@@ -147,7 +147,7 @@ var_dump($customer->body);
 // -------------------------------------
 //
 
-Request::put(ADDPAY_BASE_URL . '/transactions/<TRANSACTION_ID>/customers/<CUSTOMER_ID>');
+Api::put('/transactions/<TRANSACTION_ID>/customers/<CUSTOMER_ID>');
 
 //
 // -------------------------------------
@@ -155,7 +155,7 @@ Request::put(ADDPAY_BASE_URL . '/transactions/<TRANSACTION_ID>/customers/<CUSTOM
 // -------------------------------------
 //
 
-Request::delete(ADDPAY_BASE_URL . '/transactions/<TRANSACTION_ID>/customers/<CUSTOMER_ID>');
+Api::delete('/transactions/<TRANSACTION_ID>/customers/<CUSTOMER_ID>');
 
 //
 // -------------------------------------
@@ -163,7 +163,7 @@ Request::delete(ADDPAY_BASE_URL . '/transactions/<TRANSACTION_ID>/customers/<CUS
 // -------------------------------------
 //
 
-Request::put(ADDPAY_BASE_URL . '/contracts/<CONTRACT_ID>/transactions/<TRANSACTION_ID>');
+Api::put('/contracts/<CONTRACT_ID>/transactions/<TRANSACTION_ID>');
 
 //
 // -------------------------------------
@@ -171,4 +171,4 @@ Request::put(ADDPAY_BASE_URL . '/contracts/<CONTRACT_ID>/transactions/<TRANSACTI
 // -------------------------------------
 //
 
-Request::delete(ADDPAY_BASE_URL . '/contracts/<CONTRACT_ID>/transactions/<TRANSACTION_ID>');
+Api::delete('/contracts/<CONTRACT_ID>/transactions/<TRANSACTION_ID>');
