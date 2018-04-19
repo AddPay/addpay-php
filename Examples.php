@@ -149,7 +149,7 @@ addpay($authorisation)->put(ADDPAY_BASE_URL . '/transactions/<TRANSACTION_ID>/cu
 
 //
 // -------------------------------------
-// Dissociate a Customer to a Transaction
+// Dissociate a Customer from a Transaction
 // -------------------------------------
 //
 
