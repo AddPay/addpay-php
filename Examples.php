@@ -61,7 +61,7 @@ $contract = addpay($authorisation)->post('/contracts/')->body([
 // Update a Contract
 // --------------------------
 //
-$contract = addpay($authorisation)->put('/contract/<CONTRACT_ID>')->body([
+$contract = addpay($authorisation)->put('/contracts/<CONTRACT_ID>')->body([
   'reference' => 'Updated'
 ])->send();
 
@@ -70,14 +70,14 @@ $contract = addpay($authorisation)->put('/contract/<CONTRACT_ID>')->body([
 // Get a Contract
 // --------------------------
 //
-$contract = addpay($authorisation)->get('/contract/<CONTRACT_ID>')->send();
+$contract = addpay($authorisation)->get('/contracts/<CONTRACT_ID>')->send();
 
 //
 // --------------------------
 // Get a List of Contracts
 // --------------------------
 //
-$contract = addpay($authorisation)->get('/contract/<CONTRACT_ID>')->send();
+$contract = addpay($authorisation)->get('/contracts')->send();
 
 //
 // --------------------------
