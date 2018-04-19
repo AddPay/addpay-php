@@ -8,10 +8,6 @@ class Api
 {
     private $client_id;
     private $client_secret;
-    private $url;
-
-    const LIVE_URL = 'https://secure.addpay.co.za/v2';
-    const TEST_URL = 'https://secure-test.addpay.co.za/v2';
 
     public function __construct($config = array())
     {
@@ -19,14 +15,20 @@ class Api
         $this->client_secret = $config['client_secret'] ? $config['client_secret'] : '';
 
         if ($config['client_live']) {
-            $this->url = self::LIVE_URL
+            define('ADDPAY_BASE_URL', 'https://secure.addpay.co.za/v2');
         } else {
-             $this->url = self::TEST_URL;
+            define('ADDPAY_BASE_URL', 'https://secure-test.addpay.co.za/v2');
         }
     }
 
     public function prepare()
     {
-        return Request::expectsJson()->withAuthorisationHeader(base64_encode("{$this->client_id}:{$this->client_secret}"));
+        $token = base64_encode("{$this->client_id}:{$this->client_secret}");
+
+        return Request::init()
+                      ->withoutStrictSsl()
+                      ->expectsJson()
+                      ->withAuthorisationHeader("Token {$token}")
+                      ->sendsType(\Httpful\Mime::FORM);
     }
 }

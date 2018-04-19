@@ -13,21 +13,25 @@ $authorisation = [
 // Get a List of Transaction
 // --------------------------
 //
-$transactions = addpay($authorisation)->get('/transactions')->send();
+$transactions = addpay($authorisation)->get(ADDPAY_BASE_URL . '/transactions')->send();
+
+var_dump($transactions->body);
 
 //
 // --------------------------
 // Get a Single Transaction
 // --------------------------
 //
-$transaction = addpay($authorisation)->get('/transactions/<TRANSACTION_ID>')->send()
+$transaction = addpay($authorisation)->get(ADDPAY_BASE_URL . '/transactions/<TRANSACTION_ID>')->send()
+
+var_dump($transaction->body);
 
 //
 // --------------------------
 // Create a Transaction
 // --------------------------
 //
-$transaction = addpay($authorisation)->post('/transactions')->body([
+$transaction = addpay($authorisation)->post(ADDPAY_BASE_URL . '/transactions')->body([
   'reference'     => 'Sample',
   'description'   => 'Sample Description',
   'amount'        => [
@@ -36,84 +40,104 @@ $transaction = addpay($authorisation)->post('/transactions')->body([
   ]
 ])->send();
 
+var_dump($transaction->body);
+
 //
 // --------------------------
 // Update a Transaction
 // --------------------------
 //
-$transaction = addpay($authorisation)->put('/transactions/<TRANSACTION_ID>')->body([
+$transaction = addpay($authorisation)->put(ADDPAY_BASE_URL . '/transactions/<TRANSACTION_ID>')->body([
   'description'   => 'Updated Sample Description',
 ])->send();
+
+var_dump($transaction->body);
 
 //
 // --------------------------
 // Create a Contract
 // --------------------------
 //
-$contract = addpay($authorisation)->post('/contracts/')->body([
+$contract = addpay($authorisation)->post(ADDPAY_BASE_URL . '/contracts/')->body([
   'reference'  => 'SampleContract',
   'interval'   => 'MONTH',
   'action_day' => 31,
 ])->send();
+
+var_dump($contract->body);
 
 //
 // --------------------------
 // Update a Contract
 // --------------------------
 //
-$contract = addpay($authorisation)->put('/contracts/<CONTRACT_ID>')->body([
+$contract = addpay($authorisation)->put(ADDPAY_BASE_URL . '/contracts/<CONTRACT_ID>')->body([
   'reference' => 'Updated'
 ])->send();
+
+var_dump($contract->body);
 
 //
 // --------------------------
 // Get a Contract
 // --------------------------
 //
-$contract = addpay($authorisation)->get('/contracts/<CONTRACT_ID>')->send();
+$contract = addpay($authorisation)->get(ADDPAY_BASE_URL . '/contracts/<CONTRACT_ID>')->send();
+
+var_dump($contract->body);
 
 //
 // --------------------------
 // Get a List of Contracts
 // --------------------------
 //
-$contract = addpay($authorisation)->get('/contracts')->send();
+$contract = addpay($authorisation)->get(ADDPAY_BASE_URL . '/contracts')->send();
+
+var_dump($contract->body);
 
 //
 // --------------------------
 // Create a Customer
 // --------------------------
 //
-$customer = addpay($authorisation)->post('/customers')->body([
+$customer = addpay($authorisation)->post(ADDPAY_BASE_URL . '/customers')->body([
   'firstname' => 'John',
   'lastname'  => 'Doe',
   'email'     => 'john@example.org',
   'mobile'    => '+27800123123'
 ])->send();
 
+var_dump($customer->body);
+
 //
 // --------------------------
 // Update a Customer
 // --------------------------
 //
-$customer = addpay($authorisation)->put('/customers/<CUSTOMER_ID>')->body([
+$customer = addpay($authorisation)->put(ADDPAY_BASE_URL . '/customers/<CUSTOMER_ID>')->body([
   'firstname' => 'Peter',
   'mobile'    => '+27800123123'
 ])->send();
+
+var_dump($customer->body);
 
 //
 // --------------------------
 // Get a Customer
 // --------------------------
 //
-$customer = addpay($authorisation)->get('/customers/<CUSTOMER_ID>')->send();
+$customer = addpay($authorisation)->get(ADDPAY_BASE_URL . '/customers/<CUSTOMER_ID>')->send();
+
+var_dump($customer->body);
 
 //
 // --------------------------
 // Get a List of Customers
 // --------------------------
 //
-$customer = addpay($authorisation)->get('/customers/<CUSTOMER_ID>')->send();
+$customer = addpay($authorisation)->get(ADDPAY_BASE_URL . '/customers/<CUSTOMER_ID>')->send();
+
+var_dump($customer->body);
 
 //
 // -------------------------------------
@@ -121,7 +145,7 @@ $customer = addpay($authorisation)->get('/customers/<CUSTOMER_ID>')->send();
 // -------------------------------------
 //
 
-addpay($authorisation)->put("/transactions/<TRANSACTION_ID>/customers/<CUSTOMER_ID>}");
+addpay($authorisation)->put(ADDPAY_BASE_URL . '/transactions/<TRANSACTION_ID>/customers/<CUSTOMER_ID>');
 
 //
 // -------------------------------------
@@ -129,7 +153,7 @@ addpay($authorisation)->put("/transactions/<TRANSACTION_ID>/customers/<CUSTOMER_
 // -------------------------------------
 //
 
-addpay($authorisation)->delete("/transactions/<TRANSACTION_ID>/customers/<CUSTOMER_ID>");
+addpay($authorisation)->delete(ADDPAY_BASE_URL . '/transactions/<TRANSACTION_ID>/customers/<CUSTOMER_ID>');
 
 //
 // -------------------------------------
@@ -137,7 +161,7 @@ addpay($authorisation)->delete("/transactions/<TRANSACTION_ID>/customers/<CUSTOM
 // -------------------------------------
 //
 
-addpay($authorisation)->put("/contracts/<CONTRACT_ID>/transactions/<TRANSACTION_ID>");
+addpay($authorisation)->put(ADDPAY_BASE_URL . '/contracts/<CONTRACT_ID>/transactions/<TRANSACTION_ID>');
 
 //
 // -------------------------------------
@@ -145,4 +169,4 @@ addpay($authorisation)->put("/contracts/<CONTRACT_ID>/transactions/<TRANSACTION_
 // -------------------------------------
 //
 
-addpay($authorisation)->delete("/contracts/<CONTRACT_ID>/transactions/<TRANSACTION_ID>");
+addpay($authorisation)->delete(ADDPAY_BASE_URL . '/contracts/<CONTRACT_ID>/transactions/<TRANSACTION_ID>');

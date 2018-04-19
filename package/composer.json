@@ -1,11 +1,4 @@
 {
-  "require": {
-
-  }
-}
-
-
-{
   "name": "stephenlake/addpay-php",
   "type": "library",
   "description": "A PHP package to assist in developing applications communicating with the AddPay API.",
@@ -21,9 +14,6 @@
     "nategood/httpful": "^0.2.20"
   },
   "autoload": {
-    "files": [
-      "src/helpers.php"
-    ],
     "psr-4": {
       "AddPay\\Foundation\\": "src/"
     }

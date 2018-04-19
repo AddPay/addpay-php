@@ -2,9 +2,9 @@
 
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-function addpay($client_id, $client_secret, $live)
+function addpay($config)
 {
-    $client = new \AddPay\Foundation\Api($client_id, $client_secret, $live);
+    $client = new \AddPay\Foundation\Api($config);
 
     return $client->prepare();
 }
