@@ -28,7 +28,7 @@ class Api
         return Request::init()
                       ->withoutStrictSsl()
                       ->expectsJson()
-                      ->withAuthorisationHeader("Token {$token}")
+                      ->withAuthorizationHeader("Token {$token}")
                       ->sendsType(\Httpful\Mime::FORM);
     }
 }

@@ -3,9 +3,9 @@
 require('package/src/bootstrap.php');
 
 $authorisation = [
-  'client_id'       => '123',
-  'client_secret'   => '123',
-  'client_live'     => true
+  'client_id'       => 'f0ckxUqcMTUyMTk5NjgwMA',
+  'client_secret'   => 'aI2kisctW46lqKcGV6jdiErbIPfFyESbEiRyvnUhqP4Ovm84r',
+  'client_live'     => false
 ];
 
 //
