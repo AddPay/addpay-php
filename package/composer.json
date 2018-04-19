@@ -1,0 +1,31 @@
+{
+  "require": {
+
+  }
+}
+
+
+{
+  "name": "stephenlake/addpay-php",
+  "type": "library",
+  "description": "A PHP package to assist in developing applications communicating with the AddPay API.",
+  "keywords": ["addpay", "payments"],
+  "license": "MIT",
+  "authors": [{
+    "name": "Stephen Lake",
+    "email": "stephen@closurecode.com",
+    "homepage": "https://www.closurecode.com",
+    "role": "Developer"
+  }],
+  "require": {
+    "nategood/httpful": "^0.2.20"
+  },
+  "autoload": {
+    "files": [
+      "src/helpers.php"
+    ],
+    "psr-4": {
+      "AddPay\\Foundation\\": "src/"
+    }
+  }
+}
