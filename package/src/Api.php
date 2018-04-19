@@ -13,15 +13,20 @@ class Api
     const LIVE_URL = 'https://secure.addpay.co.za/v2';
     const TEST_URL = 'https://secure-test.addpay.co.za/v2';
 
-    public function __construct($client_id, $client_secret, $isLive = true)
+    public function __construct($config = array())
     {
-        $this->client_id = $client_id;
-        $this->client_secret = $client_secret;
-        $this->url = $isLive ? self::LIVE_URL : self::TEST_URL;
+        $this->client_id = $config['client_id'] ? $config['client_id'] : '';
+        $this->client_secret = $config['client_secret'] ? $config['client_secret'] : '';
+
+        if ($config['client_live']) {
+            $this->url = self::LIVE_URL
+        } else {
+             $this->url = self::TEST_URL;
+        }
     }
 
     public function prepare()
     {
-        return Request::expectsJson()->withAuthorisationHeader(base64_encode("{$client_id}:{$client_secret}"));
+        return Request::expectsJson()->withAuthorisationHeader(base64_encode("{$this->client_id}:{$this->client_secret}"));
     }
 }
