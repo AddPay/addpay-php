@@ -13,21 +13,21 @@ $authorisation = [
 // Get a List of Transaction
 // --------------------------
 //
-$transactions = addpay($authorisation)->get('/v2/transactions')->send();
+$transactions = addpay($authorisation)->get('/transactions')->send();
 
 //
 // --------------------------
 // Get a Single Transaction
 // --------------------------
 //
-$transaction = addpay($authorisation)->get('/v2/transactions/<TRANSACTION_ID>')->send()
+$transaction = addpay($authorisation)->get('/transactions/<TRANSACTION_ID>')->send()
 
 //
 // --------------------------
 // Create a Transaction
 // --------------------------
 //
-$transaction = addpay($authorisation)->post('/v2/transactions')->body([
+$transaction = addpay($authorisation)->post('/transactions')->body([
   'reference'     => 'Sample',
   'description'   => 'Sample Description',
   'amount'        => [
@@ -41,7 +41,7 @@ $transaction = addpay($authorisation)->post('/v2/transactions')->body([
 // Update a Transaction
 // --------------------------
 //
-$transaction = addpay($authorisation)->put('/v2/transactions/<TRANSACTION_ID>')->body([
+$transaction = addpay($authorisation)->put('/transactions/<TRANSACTION_ID>')->body([
   'description'   => 'Updated Sample Description',
 ])->send();
 
@@ -50,7 +50,7 @@ $transaction = addpay($authorisation)->put('/v2/transactions/<TRANSACTION_ID>')-
 // Create a Contract
 // --------------------------
 //
-$contract = addpay($authorisation)->post('/v2/contracts/')->body([
+$contract = addpay($authorisation)->post('/contracts/')->body([
   'reference'  => 'SampleContract',
   'interval'   => 'MONTH',
   'action_day' => 31,
@@ -61,7 +61,7 @@ $contract = addpay($authorisation)->post('/v2/contracts/')->body([
 // Update a Contract
 // --------------------------
 //
-$contract = addpay($authorisation)->put('/v2/contract/<CONTRACT_ID>')->body([
+$contract = addpay($authorisation)->put('/contract/<CONTRACT_ID>')->body([
   'reference' => 'Updated'
 ])->send();
 
@@ -70,21 +70,21 @@ $contract = addpay($authorisation)->put('/v2/contract/<CONTRACT_ID>')->body([
 // Get a Contract
 // --------------------------
 //
-$contract = addpay($authorisation)->get('/v2/contract/<CONTRACT_ID>')->send();
+$contract = addpay($authorisation)->get('/contract/<CONTRACT_ID>')->send();
 
 //
 // --------------------------
 // Get a List of Contracts
 // --------------------------
 //
-$contract = addpay($authorisation)->get('/v2/contract/<CONTRACT_ID>')->send();
+$contract = addpay($authorisation)->get('/contract/<CONTRACT_ID>')->send();
 
 //
 // --------------------------
 // Create a Customer
 // --------------------------
 //
-$customer = addpay($authorisation)->post('/v2/customers')->body([
+$customer = addpay($authorisation)->post('/customers')->body([
   'firstname' => 'John',
   'lastname'  => 'Doe',
   'email'     => 'john@example.org',
@@ -96,7 +96,7 @@ $customer = addpay($authorisation)->post('/v2/customers')->body([
 // Update a Customer
 // --------------------------
 //
-$customer = addpay($authorisation)->put('/v2/customers/<CUSTOMER_ID>')->body([
+$customer = addpay($authorisation)->put('/customers/<CUSTOMER_ID>')->body([
   'firstname' => 'Peter',
   'mobile'    => '+27800123123'
 ])->send();
@@ -106,14 +106,14 @@ $customer = addpay($authorisation)->put('/v2/customers/<CUSTOMER_ID>')->body([
 // Get a Customer
 // --------------------------
 //
-$customer = addpay($authorisation)->get('/v2/customers/<CUSTOMER_ID>')->send();
+$customer = addpay($authorisation)->get('/customers/<CUSTOMER_ID>')->send();
 
 //
 // --------------------------
 // Get a List of Customers
 // --------------------------
 //
-$customer = addpay($authorisation)->get('/v2/customers/<CUSTOMER_ID>')->send();
+$customer = addpay($authorisation)->get('/customers/<CUSTOMER_ID>')->send();
 
 //
 // -------------------------------------
@@ -124,7 +124,7 @@ $customer = addpay($authorisation)->get('/v2/customers/<CUSTOMER_ID>')->send();
 $transactionId = 'some_id';
 $customerId    = 'some_id';
 
-addpay($authorisation)->put("/v2/transactions/{$transactionId}/customers/{$customerId}");
+addpay($authorisation)->put("/transactions/{$transactionId}/customers/{$customerId}");
 
 //
 // -------------------------------------
@@ -135,7 +135,7 @@ addpay($authorisation)->put("/v2/transactions/{$transactionId}/customers/{$custo
 $transactionId = 'some_id';
 $customerId    = 'some_id';
 
-addpay($authorisation)->delete("/v2/transactions/{$transactionId}/customers/{$customerId}");
+addpay($authorisation)->delete("/transactions/{$transactionId}/customers/{$customerId}");
 
 //
 // -------------------------------------
@@ -146,15 +146,15 @@ addpay($authorisation)->delete("/v2/transactions/{$transactionId}/customers/{$cu
 $transactionId = 'some_id';
 $contractId    = 'some_id';
 
-addpay($authorisation)->put("/v2/contracts/{$contractId}/transactions/{$transactionId}");
+addpay($authorisation)->put("/contracts/{$contractId}/transactions/{$transactionId}");
 
 //
 // -------------------------------------
-// Disssociate a Transaction from a Contract
+// Dissociate a Transaction from a Contract
 // -------------------------------------
 //
 
 $transactionId = 'some_id';
 $contractId    = 'some_id';
 
-addpay($authorisation)->delete("/v2/contracts/{$contractId}/transactions/{$transactionId}");
+addpay($authorisation)->delete("/contracts/{$contractId}/transactions/{$transactionId}");
