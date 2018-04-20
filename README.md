@@ -8,3 +8,18 @@ zero maintenance is required. You pass the desired payload across as a simpl arr
  - No magic, everything is transparent and standardized. REST.
  - No low-level code. You don't have to deal with the pains of curl options. 
  - No maintenance. If a new endpoint is created, simply add your new line: `Api::get($newEndpoint);` or for a post use `(Api::post($endPoint))->body` and you're done, simple.
+
+## How To
+See the exmaples for full usage, or if that isn't clear enough to you:
+
+- Instantiate the AddPay HTTP Library once-off:
+```
+addpay([
+  'client_id'       => 'client_id_here',
+  'client_secret'   => 'client_secret_here',
+  'client_live'     => false
+]);
+```
+- Call any API endpoint: `Api::get('/transactions');`
+
+Simple.
