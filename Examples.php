@@ -1,12 +1,12 @@
 <?php
 
-require('package/src/bootstrap.php');
+require(__DIR__ . '/package/src/bootstrap.php');
 
 use AddPay\Api;
 
 addpay([
-  'client_id'       => 'client_id_here',
-  'client_secret'   => 'client_secret_here',
+  'client_id'       => 'ACzAuDMTUxODk2MjE3MQ',
+  'client_secret'   => '8XSqAWR9LYHgsEgDH4lR6QLzGD3G5rjsaZDnafH6M1Pzx5FFgLRb4Xot0Y4fooeaIfEmBnAeR',
   'client_live'     => false
 ]);
 
