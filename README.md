@@ -14,6 +14,10 @@ See the exmaples for full usage, or if that isn't clear enough to you:
 
 - Instantiate the AddPay HTTP Library once-off:
 ```
+require('package/src/bootstrap');
+
+use \AddPay\Api;
+
 addpay([
   'client_id'       => 'client_id_here',
   'client_secret'   => 'client_secret_here',
