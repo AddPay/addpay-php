@@ -3,7 +3,7 @@ This is a standard, off the shelf HTTP REST CLIENT that does AddPay authenticati
 zero maintenance is required. You pass the desired payload across as a simpl array, no complex object involved.
 
 ## Why?
- - Reliablility! Data parsing is consistent, the body will always be returned even in the event of a failure.
+ - Reliablility! Data parsing is consistent, the body will always be returned as a generic object class (stdClass) even in the event of a failure.
  - Simple, 1-line API calls.
  - No magic, everything is transparent and standardized. REST.
  - No low-level code. You don't have to deal with the pains of curl options. 
