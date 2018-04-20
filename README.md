@@ -13,7 +13,7 @@ zero maintenance is required. You pass the desired payload across as a simpl arr
 See the exmaples for full usage, or if that isn't clear enough to you:
 
 - Instantiate the AddPay HTTP Library once-off:
-```
+```php
 require('package/src/bootstrap');
 
 use \AddPay\Api;
@@ -25,11 +25,11 @@ addpay([
 ]);
 ```
 - Call any API endpoint: 
-```
+```php
 $restCall = Api::get('/transactions')->send();
 ```
 - Getting the result:
-```
+```php
 $restCall->body;
 ```
 Simple.
