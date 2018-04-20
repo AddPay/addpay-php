@@ -5,8 +5,8 @@ require(__DIR__ . '/package/src/bootstrap.php');
 use AddPay\Api;
 
 addpay([
-  'client_id'       => 'ACzAuDMTUxODk2MjE3MQ',
-  'client_secret'   => '8XSqAWR9LYHgsEgDH4lR6QLzGD3G5rjsaZDnafH6M1Pzx5FFgLRb4Xot0Y4fooeaIfEmBnAeR',
+  'client_id'       => '',
+  'client_secret'   => '',
   'client_live'     => false
 ]);
 
