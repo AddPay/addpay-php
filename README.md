@@ -7,7 +7,7 @@ zero maintenance is required. You pass the desired payload across as a simpl arr
  - Simple, 1-line API calls.
  - No magic, everything is transparent and standardized. REST.
  - No low-level code. You don't have to deal with the pains of curl options. 
- - No maintenance. If a new endpoint is created, simply add your new line: `Api::get($newEndpoint);` or for a post use `(Api::post($endPoint))->body` and you're done, simple.
+ - No maintenance. If a new endpoint is created, simply add your new line: `Api::get($newEndpoint);` or for a post use `(Api::post($endPoint)->send())->body` and you're done, simple.
 
 ## How To
 See the exmaples for full usage, or if that isn't clear enough to you:
@@ -20,6 +20,12 @@ addpay([
   'client_live'     => false
 ]);
 ```
-- Call any API endpoint: `Api::get('/transactions');`
-
+- Call any API endpoint: 
+```
+$restCall = Api::get('/transactions')->send();
+```
+Getting the result:
+```
+$restCall->body;
+```
 Simple.
