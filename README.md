@@ -1,6 +1,6 @@
 # AddPay PHP REST Client
 This is a standard, off the shelf HTTP REST CLIENT that does AddPay authentication behind the scenes for every API call, 
-zero maintenance is required. You pass the desired payload across as a simpl array, no complex object involved.
+zero maintenance is required. You pass the desired payload across as a simple array, no complex object involved.
 
 ## Why?
  - Reliablility! Data parsing is consistent, the body will always be returned as a generic object class (stdClass) even in the event of a failure.
