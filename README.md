@@ -3,11 +3,11 @@ This is a standard, off the shelf HTTP REST CLIENT that does AddPay authenticati
 zero maintenance is required. You pass the desired payload across as a simple array, no complex object involved.
 
 ## Why?
- - Reliablility! Data parsing is consistent, the body will always be returned as a generic object class (stdClass) even in the event of a failure.
+ - Data parsing is consistent, the body will always be returned as a generic object class even in the event of a failure.
  - Simple, 1-line API calls.
  - No magic, everything is transparent and standardized. REST.
  - No low-level code. You don't have to deal with the pains of curl options. 
- - No maintenance. If a new endpoint is created, simply add your new line: `Api::get($newEndpoint);` or for a post use `(Api::post($endPoint)->send())->body` and you're done, simple.
+ - No maintenance. If a new endpoint is created, simply add your new line: `Api::get($newEndpoint);` or for a post use `(Api::post($endPoint)->send())->body` and you're done.
 
 ## How To
 See the exmaples for full usage, or if that isn't clear enough to you:
@@ -32,4 +32,3 @@ $restCall = Api::get('/transactions')->send();
 ```php
 $restCall->body;
 ```
-Simple.
