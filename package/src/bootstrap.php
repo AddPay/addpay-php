@@ -4,6 +4,14 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 
 function addpay($config)
 {
+    if (empty($config['client_id'])) {
+        throw new \Exception('Please fill in the client_id');
+    }
+
+    if (empty($config['client_secret'])) {
+        throw new \Exception('Please fill in the client_secret');
+    }
+
     define('ADDPAY_TOKEN', 'Token ' . base64_encode("{$config['client_id']}:{$config['client_secret']}"));
 
     if ($config['client_live']) {
