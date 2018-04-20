@@ -24,7 +24,7 @@ addpay([
 ```
 $restCall = Api::get('/transactions')->send();
 ```
-Getting the result:
+- Getting the result:
 ```
 $restCall->body;
 ```
